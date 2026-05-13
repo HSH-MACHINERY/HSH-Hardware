@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>H S H MACHINERY - 遥控割草机产品总览</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+
+    /* 黑金背景 */
+    background:
+      radial-gradient(circle at top, #3a2b00 0%, #111 40%, #000 100%);
+
+    margin: 0;
+    padding: 0 20px 20px;
+    color: #fff;
+  }
+
+  /* 顶部导航栏 */
+  header {
+    background:
+      linear-gradient(90deg,#000,#1a1a1a,#000);
+
+    padding: 20px;
+    text-align: center;
+
+    border-bottom: 2px solid #d4af37;
+
+    box-shadow:
+      0 0 15px rgba(212,175,55,0.4);
+  }
+
+  /* HSH按钮特效 */
+  .brand-btn {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 2.5rem;
+    padding: 15px 40px;
+
+    background:
+      linear-gradient(145deg,#111,#000);
+
+    color: #ffd700;
+
+    border-radius: 8px;
+    border: 2px solid #d4af37;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    box-shadow:
+      0 0 10px rgba(255,215,0,0.3);
+  }
+
+  .brand-btn:hover {
+    color: #fff;
+
+    background:
+      linear-gradient(90deg,#3a2b00,#d4af37,#3a2b00);
+
+    box-shadow:
+      0 0 20px rgba(255,215,0,0.7);
+
+    transform: scale(1.05);
+  }
+
+  h1 {
+    text-align: center;
+    color: #ffd700;
+    margin: 30px 0 40px 0;
+    font-size: 2rem;
+    font-weight: bold;
+
+    text-shadow:
+      0 0 8px rgba(255,215,0,0.5);
+  }
+
+  .series {
+    margin-bottom: 40px;
+  }
+
+  .series-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    padding-left: 10px;
+
+    border-left: 5px solid #ffd700;
+
+    color: #ffd700;
+
+    text-align: center;
+
+    text-shadow:
+      0 0 8px rgba(255,215,0,0.5);
+  }
+
+  .product-list {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .product-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  .series-1 .product-item,
+  .series-2 .product-item {
+    flex: 1 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+
+  .series-3 .product-item {
+    flex: 1 1 calc(33.333% - 13.333px);
+    max-width: calc(33.333% - 13.333px);
+  }
+
+  .product-item {
+
+    /* 黑金卡片 */
+    background:
+      linear-gradient(145deg,#1a1a1a,#050505);
+
+    border-radius: 8px;
+    padding: 10px;
+
+    border: 1px solid rgba(255,215,0,0.3);
+
+    box-shadow:
+      0 2px 10px rgba(0,0,0,0.5),
+      0 0 8px rgba(255,215,0,0.08);
+
+    text-align: center;
+    cursor: pointer;
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border 0.2s ease;
+
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 金色滑动光效 */
+  .product-item::before{
+    content: "";
+
+    position: absolute;
+
+    top: -50%;
+    left: -120%;
+
+    width: 60%;
+    height: 220%;
+
+    background:
+      linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,215,0,0.18),
+        transparent
+      );
+
+    transform: rotate(25deg);
+
+    transition: 0.7s;
+  }
+
+  /* Hover时滑过去 */
+  .product-item:hover::before{
+    left: 160%;
+  }
+
+  .product-item:hover {
+
+    transform: scale(1.05);
+
+    border: 1px solid #ffd700;
+
+    box-shadow:
+      0 0 18px rgba(255,215,0,0.35);
+  }
+
+  .product-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+
+  .product-name {
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 18px;
+
+    color: #ffd700;
+
+    text-shadow:
+      0 0 6px rgba(255,215,0,0.4);
+  }
+
+  @media (max-width: 768px) {
+
+    .brand-btn {
+      font-size: 1.8rem;
+      padding: 10px 20px;
+      margin: 5px;
+    }
+
+    .product-row {
+      flex-wrap: wrap !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+    }
+
+    .product-item {
+      flex: 1 1 100% !important;
+      max-width: 100% !important;
+      margin-bottom: 20px;
+    }
+  }
+
+  /* 社交图标固定右下角 */
+  .social-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    z-index: 999;
+  }
+
+  .social-icons a img {
+
+    width: 50px;
+    height: 50px;
+
+    cursor: pointer;
+
+    transition: transform 0.2s,
+                box-shadow 0.2s;
+
+    border-radius: 50%;
+
+    background: rgba(255,215,0,0.08);
+
+    padding: 5px;
+  }
+
+  .social-icons a img:hover {
+
+    transform: scale(1.1);
+
+    box-shadow:
+      0 0 15px rgba(255,215,0,0.6);
+  }
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="history.html" class="brand-btn">H S H MACHINERY</a>
+</header>
+
+<h1></h1>
+
+<!-- 系列 1 -->
+<div class="series series-1">
+
+  <div class="series-title">
+    4X4 ROBOTIC LAWN MOWER
+  </div>
+
+  <div class="product-list">
+
+    <div class="product-row">
+
+      <div class="product-item"
+      onclick="location.href='u1.html'">
+
+        <img src="9.5hp alternator 4x4.jpg" alt="7.5HP">
+
+        <div class="product-name">
+          7.5HP
+        </div>
+
+      </div>
+
+      <div class="product-item"
+      onclick="location.href='u2.html'">
+
+        <img src="9.5hp alternator 4x4.jpg" alt="9.0HP">
+
+        <div class="product-name">
+          9.0HP
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- 系列 2 -->
+<div class="series series-2">
+
+  <div class="series-title">
+    ROBOTIC LAWN MOWER
+  </div>
+
+  <div class="product-list">
+
+    <div class="product-row">
+
+      <div class="product-item"
+      onclick="location.href='u3.html'">
+
+        <img src="7.5hp medium robotic.jpg" alt="7.5 HP">
+
+        <div class="product-name">
+          7.5 HP
+        </div>
+
+      </div>
+
+      <div class="product-item"
+      onclick="location.href='u4.html'">
+
+        <img src="9hp high robotic.jpg" alt="9.0 HP">
+
+        <div class="product-name">
+          9.0 HP
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="product-row">
+
+      <div class="product-item"
+      onclick="location.href='u5.html'">
+
+        <img src="16hp high robotic.jpg" alt="16.0HP">
+
+        <div class="product-name">
+          16.0HP
+        </div>
+
+      </div>
+
+      <div class="product-item"
+      onclick="location.href='u6.html'">
+
+        <img src="22hp medium robotic.jpg" alt="22.0HP">
+
+        <div class="product-name">
+          22.0HP
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- 系列 3 -->
+<div class="series series-3">
+
+  <div class="series-title">
+    TANK SERIES
+  </div>
+
+  <div class="product-list">
+
+    <div class="product-row">
+
+      <div class="product-item"
+      onclick="location.href='u7.html'">
+
+        <img src="16hp high tank.jpg" alt="16.0HP">
+
+        <div class="product-name">
+          16.0HP
+        </div>
+
+      </div>
+
+      <div class="product-item"
+      onclick="location.href='u8.html'">
+
+        <img src="22hp high tank.jpg" alt="22.0HP">
+
+        <div class="product-name">
+          22.0HP
+        </div>
+
+      </div>
+
+      <div class="product-item"
+      onclick="location.href='u9.html'">
+
+        <img src="27hp normal tank.jpg" alt="27.0HP">
+
+        <div class="product-name">
+          27.0HP
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- 系列 4 -->
+<div class="series series-4">
+
+  <div class="series-title">
+    前面搅动
+  </div>
+
+  <div class="product-list">
+
+    <div class="product-row">
+
+      <div class="product-item"
+      onclick="location.href='u10.html'">
+
+        <img src="刀盘薄.jpg" alt="16.0HP">
+
+        <div class="product-name">
+          16.0HP
+        </div>
+
+      </div>
+
+      <div class="product-item"
+      onclick="location.href='u10.html'">
+
+        <img src="刀盘薄.jpg" alt="22.0HP">
+
+        <div class="product-name">
+          22.0HP
+        </div>
+
+      </div>
+
+      <div class="product-item"
+      onclick="location.href='u10.html'">
+
+        <img src="刀盘薄.jpg" alt="27.0HP">
+
+        <div class="product-name">
+          27.0HP
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<!-- 社交图标固定右下角 -->
+<div class="social-icons">
+
+  <a href="https://www.facebook.com/share/16iSxA8DG7/" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+  </a>
+
+  <a href="https://wa.me/message/WYLCVL4KIGKUP1" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+  </a>
+
+  <a href="https://www.tiktok.com/@hshmachinery?is_from_webapp=1&sender_device=pc" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
+  </a>
+
+</div>
+
+</body>
+</html>

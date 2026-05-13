@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>草地/地形 询问表单 Borang Pertanyaan Rumput / Bentuk Tanah</title>
+<style>
+  :root{--accent:#1e88e5;--muted:#666}
+  *{box-sizing:border-box}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; background:#f7f9fc;margin:0;padding:24px}
+  .card{max-width:920px;margin:0 auto;background:#fff;border-radius:12px;padding:20px 22px;box-shadow:0 6px 18px rgba(23,35,63,0.08)}
+  h1{margin:0 0 6px;font-size:20px}
+  p.lead{color:var(--muted);margin:0 0 20px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .row{display:flex;gap:12px;align-items:center}
+  label{display:block;font-weight:600;margin-bottom:6px}
+  .field{padding:10px;border:1px solid #e6eef9;border-radius:8px;background:#fcfeff;width:100%}
+  .options{display:flex;flex-wrap:wrap;gap:8px}
+  .option{padding:8px 10px;border-radius:8px;border:1px solid #e0e6ef;background:#fff;cursor:pointer}
+  .option input{display:none}
+  .option.selected{background:linear-gradient(180deg,#eef7ff,#fff);border-color:var(--accent);box-shadow:0 2px 6px rgba(30,136,229,0.12)}
+  .full{grid-column:1/ -1}
+  textarea{min-height:92px;padding:10px;border-radius:8px;border:1px solid #e6eef9;background:#fcfeff;width:100%;resize:vertical}
+  .muted{color:var(--muted);font-size:13px}
+  .actions{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}
+  button{background:var(--accent);color:#fff;border:0;padding:10px 14px;border-radius:8px;cursor:pointer;width:fit-content}
+  button.secondary{background:#f3f6fb;color:#16324a;border:1px solid #e6eef9}
+  .summary{background:#f4f8ff;padding:12px;border-radius:8px;border:1px dashed #d7e9ff;color:#083358}
+
+  @media (max-width:760px){
+    .grid{grid-template-columns:1fr}
+    .row{flex-direction:column;gap:8px}
+    .actions{flex-direction:column-reverse;align-items:stretch}
+    button{width:100%}
+  }
+</style>
+</head>
+<body>
+<main class="card" role="main">
+<h1>草地 / 地形 询问表单 Borang Pertanyaan Rumput / Bentuk Tanah</h1>
+<p class="lead">请完整填写以下项，方便我们估价与安排割草（可点选多项）。</p>
+<p class="lead">Sila lengkapkan maklumat di bawah untuk membolehkan kami memberikan anggaran harga dan mengaturkan kerja rumput (boleh pilih lebih daripada satu pilihan).</p>
+
+<form id="inquiryForm">
+<div class="grid">
+  <!-- 草况 -->
+  <div>
+    <label for="grassCondition">草况 / Keadaan Rumput（可多选 / Pilihan Pelbagai）</label>
+    <div class="field options" id="grassCondition">
+      <label class="option"><input type="checkbox" name="grass" value="厚 (Tebal)"> 厚 (Tebal)</label>
+      <label class="option"><input type="checkbox" name="grass" value="薄 (Nipis)"> 薄 (Nipis)</label>
+      <label class="option"><input type="checkbox" name="grass" value="树枝多 (Banyak Ranting)"> 树枝多 (Banyak Ranting)</label>
+    </div>
+  </div>
+
+  <!-- 地形 -->
+  <div>
+    <label for="terrain">地形 / Bentuk Tanah（可多选 / Pilihan Pelbagai）</label>
+    <div class="field options" id="terrain">
+      <label class="option"><input type="checkbox" name="terrain" value="平地 (Tanah Rata)"> 平地 (Tanah Rata)</label>
+      <label class="option"><input type="checkbox" name="terrain" value="凹凸不平 (Tidak Rata)"> 凹凸不平 (Tidak Rata)</label>
+      <label class="option"><input type="checkbox" name="terrain" value="斜坡 (Cerun)"> 斜坡 (Cerun)</label>
+    </div>
+  </div>
+
+  <!-- 地方大小 -->
+  <div>
+    <label for="areaSize">地方大小 / Saiz Kawasan</label>
+    <div class="row">
+      <input id="areaSize" name="areaSize" class="field" type="number" min="0" step="0.1" placeholder="数值 / Nombor">
+      <select id="areaUnit" name="areaUnit" class="field" style="min-width:120px">
+        <option value=" - EKAR"> EKAR</option>
+      </select>
+    </div>
+    <p class="muted">请填写面积数字并选择单位（若不确定，可估算）。</p>
+    <p class="muted">Sila isi nombor saiz kawasan dan pilih unit (jika tidak pasti, anggaran dibenarkan).</p>
+  </div>
+
+  <!-- 预算 -->
+  <div>
+    <label for="budget">预算 / Bajet（大概多少钱 / Anggaran Harga）</label>
+    <select id="budget" name="budget" class="field">
+      <option value="RM20,000 – RM30,000">RM20,000 – RM30,000</option>
+      <option value="RM10,000 – RM20,000">RM10,000 – RM20,000</option>
+      <option value="RM6,000 – RM10,000">RM6,000 – RM10,000</option>
+     
+      
+    </select>
+  </div>
+
+  <!-- 备注 -->
+  <div class="full">
+    <label for="notes">补充说明 / 联系方式 / Nota Tambahan</label>
+    <textarea id="notes" name="notes" placeholder=""></textarea>
+  </div>
+</div>
+
+<div class="actions">
+  <button type="button" id="previewBtn" class="secondary">预览/检查 / Pratonton</button>
+  <button type="submit">提交询问 / Hantar</button>
+</div>
+
+<div style="margin-top:14px" id="result"></div>
+</form>
+</main>
+
+<script>
+// 选项点击切换样式
+document.querySelectorAll('.option').forEach(opt=>{
+  opt.addEventListener('click', ()=>{
+    const input = opt.querySelector('input');
+    if(!input) return;
+    if(input.type==='checkbox'){
+      input.checked = !input.checked;
+      opt.classList.toggle('selected', input.checked);
+    } else if(input.type==='radio'){
+      const group = document.querySelectorAll('input[name="'+input.name+'"]');
+      group.forEach(i=>i.closest('.option')?.classList.remove('selected'));
+      input.checked = true;
+      opt.classList.add('selected');
+    }
+  });
+});
+document.querySelectorAll('input:checked').forEach(i=>i.closest('.option')?.classList.add('selected'));
+
+// 预览按钮
+document.getElementById('previewBtn').addEventListener('click', ()=>{
+  const data = new FormData(document.getElementById('inquiryForm'));
+  const grasses = data.getAll('grass').join(', ') || '-';
+  const terrains = data.getAll('terrain').join(', ') || '-';
+  const area = (data.get('areaSize')||'-') + (data.get('areaUnit')||'');
+  const budget = data.get('budget') || '-';
+  const notes = data.get('notes') || '-';
+
+  const summary = `
+    <div class="summary">
+      <strong>预览摘要 / Pratonton</strong>
+      <div><strong>草况 / Keadaan Rumput：</strong> ${grasses}</div>
+      <div><strong>地形 / Bentuk Tanah：</strong> ${terrains}</div>
+      <div><strong>地方大小 / Saiz Kawasan：</strong> ${area}</div>
+      <div><strong>预算 / Bajet：</strong> ${budget}</div>
+      <div><strong>备注 / Nota Tambahan：</strong> ${notes}</div>
+    </div>
+  `;
+  document.getElementById('result').innerHTML = summary;
+  document.getElementById('result').scrollIntoView({behavior:'smooth'});
+});
+
+// 提交到 WhatsApp
+document.getElementById('inquiryForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const data = new FormData(e.target);
+  const grasses = data.getAll('grass').join(', ') || '-';
+  const terrains = data.getAll('terrain').join(', ') || '-';
+  const area = (data.get('areaSize')||'-') + (data.get('areaUnit')||'');
+  const budget = data.get('budget') || '-';
+  const notes = data.get('notes') || '-';
+  const message = `草地/地形询问 Borang Pertanyaan Rumput / Bentuk Tanah :%0A草况: ${grasses}%0A地形: ${terrains}%0A地方大小: ${area}%0A预算: ${budget}%0A备注: ${notes}`;
+  const phone = '60128696510';
+  const url = `https://wa.me/${phone}?text=${message}`;
+  window.open(url, '_blank');
+});
+</script>
+</body>
+</html>
