@@ -111,6 +111,7 @@
   }
 
   .series-1 .product-item,
+  .series-4 .product-item,
   .series-2 .product-item {
     flex: 1 1 calc(50% - 10px);
     max-width: calc(50% - 10px);
@@ -263,7 +264,67 @@
     box-shadow:
       0 0 15px rgba(255,215,0,0.6);
   }
+ .new-badge {
 
+  position: absolute;
+
+  top: 10px;
+  left: 10px;
+
+  background:
+    linear-gradient(135deg,#000,#8a6a00,#ffd700,#8a6a00,#000);
+
+  color: #fff;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  padding: 6px 14px;
+
+  border-radius: 20px;
+
+  z-index: 10;
+
+  letter-spacing: 1px;
+
+  border: 1px solid #ffd700;
+
+  text-shadow:
+    0 0 5px #000;
+
+  box-shadow:
+    0 0 10px rgba(255,215,0,0.5);
+
+  animation: goldGlow 1.8s infinite;
+}
+
+
+/* 金色发光动画 */
+@keyframes goldGlow {
+
+  0% {
+
+    box-shadow:
+    0 0 5px rgba(255,215,0,0.3);
+
+  }
+
+  50% {
+
+    box-shadow:
+    0 0 20px rgba(255,215,0,0.9);
+
+  }
+
+  100% {
+
+    box-shadow:
+    0 0 5px rgba(255,215,0,0.3);
+
+  }
+
+}
 </style>
 </head>
 
@@ -289,7 +350,7 @@
       <div class="product-item"
       onclick="location.href='u1.html'">
 
-        <img src="9.5hp alternator 4x4.jpg" alt="7.5HP">
+        <img src="9.5hp alternator 4x4 N.jpg" alt="7.5HP">
 
         <div class="product-name">
           7.5HP
@@ -300,7 +361,7 @@
       <div class="product-item"
       onclick="location.href='u2.html'">
 
-        <img src="9.5hp alternator 4x4.jpg" alt="9.0HP">
+        <img src="9.5hp alternator 4x4 N.jpg" alt="9.0HP">
 
         <div class="product-name">
           9.0HP
@@ -327,11 +388,15 @@
 
       <div class="product-item"
       onclick="location.href='u3.html'">
+      
+       <div class="new-badge">
+        NEW
+        </div>
 
-        <img src="7.5hp medium robotic.jpg" alt="7.5 HP">
+        <img src="HSH-CP955-PRO.jpg" alt="9.0 HP">
 
         <div class="product-name">
-          7.5 HP
+           9.0 HP
         </div>
 
       </div>
@@ -339,7 +404,7 @@
       <div class="product-item"
       onclick="location.href='u4.html'">
 
-        <img src="9hp high robotic.jpg" alt="9.0 HP">
+        <img src="9hp high robotic N.jpg" alt="9.0 HP">
 
         <div class="product-name">
           9.0 HP
@@ -354,7 +419,7 @@
       <div class="product-item"
       onclick="location.href='u5.html'">
 
-        <img src="16hp high robotic.jpg" alt="16.0HP">
+        <img src="16hp high robotic N.jpg" alt="16.0HP">
 
         <div class="product-name">
           16.0HP
@@ -365,7 +430,7 @@
       <div class="product-item"
       onclick="location.href='u6.html'">
 
-        <img src="22hp medium robotic.jpg" alt="22.0HP">
+        <img src="22hp HIGH robotic N.jpg" alt="22.0HP">
 
         <div class="product-name">
           22.0HP
@@ -393,7 +458,7 @@
       <div class="product-item"
       onclick="location.href='u7.html'">
 
-        <img src="16hp high tank.jpg" alt="16.0HP">
+        <img src="16hp high tank N.jpg" alt="16.0HP">
 
         <div class="product-name">
           16.0HP
@@ -404,7 +469,7 @@
       <div class="product-item"
       onclick="location.href='u8.html'">
 
-        <img src="22hp high tank.jpg" alt="22.0HP">
+        <img src="22hp HIGH tank N.jpg" alt="22.0HP">
 
         <div class="product-name">
           22.0HP
@@ -415,7 +480,7 @@
       <div class="product-item"
       onclick="location.href='u9.html'">
 
-        <img src="27hp normal tank.jpg" alt="27.0HP">
+        <img src="27hp high tank N.jpg" alt="27.0HP">
 
         <div class="product-name">
           27.0HP
@@ -433,7 +498,7 @@
 <div class="series series-4">
 
   <div class="series-title">
-    前面搅动
+    RC Grass Shredder
   </div>
 
   <div class="product-list">
@@ -443,40 +508,70 @@
       <div class="product-item"
       onclick="location.href='u10.html'">
 
-        <img src="刀盘薄.jpg" alt="16.0HP">
+        <img src="HSH-S950-P (Petrol Version) 9HP.jpg" 
+        alt="9.0 HP/12.0 HP">
 
         <div class="product-name">
-          16.0HP
+          9.0 HP / 12.0 HP
         </div>
 
       </div>
+
 
       <div class="product-item"
-      onclick="location.href='u10.html'">
+      onclick="location.href='u11.html'">
 
-        <img src="刀盘薄.jpg" alt="22.0HP">
+        <img src="HSH-S1580-D (Diesel Medium Spec Version) 15HP.jpg"
+        alt="15.0 HP/18.0 HP">
 
         <div class="product-name">
-          22.0HP
+          15.0 HP / 18.0 HP
         </div>
 
       </div>
 
-      <div class="product-item"
-      onclick="location.href='u10.html'">
-
-        <img src="刀盘薄.jpg" alt="27.0HP">
-
-        <div class="product-name">
-          27.0HP
-        </div>
-
-      </div>
 
     </div>
 
   </div>
 
+</div>
+
+
+<!-- 系列 5 -->
+<div class="series series-5">
+
+  <div class="series-title">
+    RC Transport Truck RT Series
+  </div>
+
+
+  <div class="product-list">
+
+    <div class="product-row">
+
+
+      <div class="product-item"
+      onclick="location.href='u12.html'">
+
+
+        <img src="HSH-RT1000.jpg"
+        alt="RC Transport Truck">
+
+
+        <div class="product-name">
+          RT SERIES
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
 </div>
 <!-- 社交图标固定右下角 -->
 <div class="social-icons">
